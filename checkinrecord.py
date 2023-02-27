@@ -6,9 +6,11 @@ from tkinter import messagebox
 import csv
 
 def writecsv(datalist):
-    with open('data-checkin.csv','a',encoding='utf-8',newline='') as file:
+    with open('student-checkin.csv','a',encoding='utf-8',newline='') as file:
         fw = csv.writer(file) # fw file writer
         fw.writerow(datalist) 
+data1 = []
+writecsv(data1)
 
 def readcsv():
     with open('data-checkin.csv',encoding='utf-8',newline='') as file:
@@ -42,7 +44,7 @@ from datetime import datetime
 
 
 def SaveData():
-    t = datetime.now().strftime('%Y%m%d %H%M%S')
+    t = datetime.now().strftime('%Y/%m/%d @%H:%M:%S')
     data = v_data.get() # pull variable v_data 
     text = [t,data] #[time, data from fill the box]
     writecsv(text) #record on Csv
